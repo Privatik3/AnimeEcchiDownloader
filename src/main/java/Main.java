@@ -1,19 +1,18 @@
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-import java.io.IOException;
+import java.io.*;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
+        File file = new File("src/main/resources/EcchiPage1.html");
+        BufferedReader br = new BufferedReader(new FileReader(file.getAbsoluteFile()));
 
-        Document doc = Jsoup.connect("http://anime.reactor.cc/tag/ecchi/best/1").get();
-        Elements newsHeadlines = doc.select(".blogs.super li");
-
-        for (Element element: newsHeadlines) {
-            System.out.println(element.select("strong").text());
+        String allBodyHtml = "";
+        String newLine;
+        while ((newLine = br.readLine()) != null) {
+            allBodyHtml += newLine;
         }
+
+        Solution solution = new Solution();
+        solution.parseTagImg(allBodyHtml);
     }
 }

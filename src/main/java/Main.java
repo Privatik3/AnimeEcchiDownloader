@@ -9,11 +9,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Document doc = Jsoup.connect("http://anime.reactor.cc/tag/ecchi/best/1").get();
-        Elements newsHeadlines = doc.select(".image");
-
-        for (Element element: newsHeadlines) {
-            System.out.println(element.getElementsByTag("img"));
-        }
+       // Document doc = Jsoup.connect("http://anime.reactor.cc/tag/ecchi/best/1").get();
+      
     }
 }

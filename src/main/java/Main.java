@@ -10,10 +10,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         Document doc = Jsoup.connect("http://anime.reactor.cc/tag/ecchi/best/1").get();
-        Elements newsHeadlines = doc.select(".image");
+        Elements newsHeadlines = doc.select(".blogs.super li");
 
         for (Element element: newsHeadlines) {
-            System.out.println(element.getElementsByTag("img"));
+            System.out.println(element.select("strong").text());
         }
     }
 }

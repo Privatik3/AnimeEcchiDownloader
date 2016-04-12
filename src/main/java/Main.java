@@ -13,6 +13,9 @@ public class Main {
         }
 
         Solution solution = new Solution();
-        solution.parseTagImg(allBodyHtml);
+        //solution.parseTagImg(allBodyHtml);
+        for (String tag :  solution.selectTag(allBodyHtml, "li"))
+            System.out.println(tag);
+
     }
 }
